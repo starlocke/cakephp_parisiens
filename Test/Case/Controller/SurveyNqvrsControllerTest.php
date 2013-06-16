@@ -53,6 +53,27 @@ class SurveyNqvrsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testAdd() {
+		$data = array(
+			'SurveyNqvr' => array(
+					'q1' => true
+				, 'q2' => true
+				, 'q3' => 2
+				, 'q4' => '{2,3}'
+				, 'q5' => '{3,4,3,2,1,2,3,4,3,2,1}'
+				, 'q6' => 3
+			)
+		);
+		$this->testAction('/survey_nqvrs/add.json', array('data' => $data));
+		$this->assertRegExp('/survey_nqvrs$/', $this->headers['Location']);
+		$this->testAction('/survey_nqvrs/index.json', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertNotEmpty($this->vars['surveyNqvrs'][1]['SurveyNqvr']['id']);
+		$this->assertNotEmpty($this->vars['surveyNqvrs'][1]['SurveyNqvr']['created']);
+		$this->assertEquals(true, $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q1']);
+		$this->assertEquals(true, $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q2']);
+		$this->assertEquals(2, $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q3']);
+		$this->assertEquals('{2,3}', $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q4']);
+		$this->assertEquals('{3,4,3,2,1,2,3,4,3,2,1}', $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q5']);
+		$this->assertEquals(3, $this->vars['surveyNqvrs'][1]['SurveyNqvr']['q6']);
 	}
 
 /**

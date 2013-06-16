@@ -51,6 +51,24 @@ class SurveyPmasControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testAdd() {
+		$data = array(
+			'SurveyPma' => array(
+					'q1' => 2
+				, 'q2' => 3
+				, 'q3' => '{1,2,3,4,5,4,3}'
+				, 'q4' => true
+			)
+		);
+		$this->testAction('/survey_pmas/add.json', array('data' => $data));
+		$this->assertRegExp('/survey_pmas$/', $this->headers['Location']);
+		$this->testAction('/survey_pmas/index.json', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertNotEmpty($this->vars['surveyPmas'][1]['SurveyPma']['id']);
+		$this->assertNotEmpty($this->vars['surveyPmas'][1]['SurveyPma']['created']);
+		$this->assertEquals(2, $this->vars['surveyPmas'][1]['SurveyPma']['q1']);
+		$this->assertEquals(3, $this->vars['surveyPmas'][1]['SurveyPma']['q2']);
+		$this->assertEquals('{1,2,3,4,5,4,3}', $this->vars['surveyPmas'][1]['SurveyPma']['q3']);
+		$this->assertEquals(true, $this->vars['surveyPmas'][1]['SurveyPma']['q4']);
+
 	}
 
 /**
