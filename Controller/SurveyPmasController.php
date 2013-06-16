@@ -31,6 +31,7 @@ class SurveyPmasController extends AppController {
 		}
 		$options = array('conditions' => array('SurveyPma.' . $this->SurveyPma->primaryKey => $id));
 		$this->set('surveyPma', $this->SurveyPma->find('first', $options));
+		$this->set('_serialize', array('surveyPma'));
 	}
 
 /**

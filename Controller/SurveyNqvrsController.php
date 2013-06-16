@@ -31,6 +31,7 @@ class SurveyNqvrsController extends AppController {
 		}
 		$options = array('conditions' => array('SurveyNqvr.' . $this->SurveyNqvr->primaryKey => $id));
 		$this->set('surveyNqvr', $this->SurveyNqvr->find('first', $options));
+		$this->set('_serialize', array('surveyNqvr'));
 	}
 
 /**

@@ -33,6 +33,16 @@ class SurveyPmasControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testView() {
+		$this->testAction('/survey_pmas/view/862289f2-d620-11e2-80f1-080027347923.json',
+						array('method'=>'GET', 'return'=>'vars'));
+		$this->assertEquals('862289f2-d620-11e2-80f1-080027347923', $this->vars['surveyPma']['SurveyPma']['id']);
+		$this->assertEquals('2013-06-15 20:37:21', $this->vars['surveyPma']['SurveyPma']['created']);
+		$this->assertEquals(1, $this->vars['surveyPma']['SurveyPma']['q1']);
+		$this->assertEquals(1, $this->vars['surveyPma']['SurveyPma']['q2']);
+		$this->assertEquals('{1,1,1,1,1,1,1}', $this->vars['surveyPma']['SurveyPma']['q3']);
+		$this->assertEquals(true, $this->vars['surveyPma']['SurveyPma']['q4']);
+		$expected = '{"surveyPma":{"SurveyPma":{"id":"862289f2-d620-11e2-80f1-080027347923","q1":1,"q2":1,"q3":"{1,1,1,1,1,1,1}","q4":true,"created":"2013-06-15 20:37:21"}}}';
+		$this->assertEquals($expected, $this->contents);
 	}
 
 /**
