@@ -88,7 +88,6 @@ class SurveySmsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testDelete() {
-		//98abcee4-d620-11e2-ab8e-080027347923
 		$this->testAction('/survey_sms/delete/98abcee4-d620-11e2-ab8e-080027347923');
 		$this->assertRegExp('/survey_sms$/', $this->headers['Location']);
 		$this->testAction('/survey_sms', array('method'=>'GET', 'return'=>'vars'));
