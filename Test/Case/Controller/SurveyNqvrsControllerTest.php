@@ -54,6 +54,10 @@ class SurveyNqvrsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testDelete() {
+		$this->testAction('/survey_nqvrs/delete/85bd58b6-d620-11e2-ae09-080027347923');
+		$this->assertRegExp('/survey_nqvrs$/', $this->headers['Location']);
+		$this->testAction('/survey_nqvrs', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertEmpty($this->vars['surveyNqvrs']);
 	}
 
 }

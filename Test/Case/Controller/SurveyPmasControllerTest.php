@@ -54,6 +54,10 @@ class SurveyPmasControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testDelete() {
+		$this->testAction('/survey_pmas/delete/862289f2-d620-11e2-80f1-080027347923');
+		$this->assertRegExp('/survey_pmas$/', $this->headers['Location']);
+		$this->testAction('/survey_pmas', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertEmpty($this->vars['surveyPmas']);
 	}
 
 }
