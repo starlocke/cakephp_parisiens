@@ -95,4 +95,9 @@ class SurveySmsController extends AppController {
 		$this->Session->setFlash(__('Survey sm was not deleted'));
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function report(){
+		$this->set('report', $this->SurveySm->report());
+		$this->set('_serialize', array('report'));
+	}
 }

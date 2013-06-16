@@ -31,6 +31,20 @@ class SurveySmTest extends CakeTestCase {
 		$this->assertTrue( !empty($this->SurveySm->id), "Fixture not found.");
 	}
 
+	public function testReport(){
+		$actual = $this->SurveySm->report();
+		$this->assertEquals(25, $actual['sympathique']);
+		$this->assertEquals(25, $actual['joyeux']);
+		$this->assertEquals(25, $actual['chaleureux']);
+		$this->assertEquals(25, $actual['généreux']);
+		$this->assertEquals(100, $actual['vertus']);
+		$this->assertEquals(25, $actual['bavard']);
+		$this->assertEquals(25, $actual['ennuyeux']);
+		$this->assertEquals(25, $actual['stressé']);
+		$this->assertEquals(25, $actual['prétentieux']);
+		$this->assertEquals(100, $actual['vices']);
+	}
+
 /**
  * tearDown method
  *

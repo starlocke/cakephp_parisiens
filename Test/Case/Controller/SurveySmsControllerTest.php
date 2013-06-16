@@ -94,4 +94,10 @@ class SurveySmsControllerTest extends ControllerTestCase {
 		$this->assertEmpty($this->vars['surveySms']);
 	}
 
+	public function testReport() {
+		$this->testAction('/survey_sms/report.json', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertNotEmpty($this->vars['report']);
+		$this->assertEquals('{"report":{"sympathique":"25","joyeux":"25","chaleureux":"25","g\u00e9n\u00e9reux":"25","vertus":"100","bavard":"25","ennuyeux":"25","stress\u00e9":"25","pr\u00e9tentieux":"25","vices":"100"}}', $this->contents);
+	}
+
 }
