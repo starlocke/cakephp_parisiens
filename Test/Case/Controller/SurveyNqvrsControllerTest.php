@@ -82,6 +82,20 @@ class SurveyNqvrsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testEdit() {
+		$data = array('SurveyNqvr' => array('id' => '85bd58b6-d620-11e2-ae09-080027347923', 'q2' => false, 'q5' => '{2,3}'));
+		$this->testAction('/survey_nqvrs/edit/85bd58b6-d620-11e2-ae09-080027347923',
+						array('method'=>'POST', 'data' => $data, 'return'=>'contents'));
+		$this->assertRegExp('/survey_nqvrs$/', $this->headers['Location']);
+		//$this->autoMock = false;
+		$this->testAction('/survey_nqvrs', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertEquals('85bd58b6-d620-11e2-ae09-080027347923', $this->vars['surveyNqvrs'][0]['SurveyNqvr']['id']);
+		$this->assertEquals('2013-06-15 20:37:21', $this->vars['surveyNqvrs'][0]['SurveyNqvr']['created']);
+		$this->assertEquals(true, $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q1']);
+		$this->assertEquals(false, $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q2']);
+		$this->assertEquals(1, $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q3']);
+		$this->assertEquals('{1}', $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q4']);
+		$this->assertEquals('{2,3}', $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q5']);
+		$this->assertEquals(1, $this->vars['surveyNqvrs'][0]['SurveyNqvr']['q6']);
 	}
 
 /**

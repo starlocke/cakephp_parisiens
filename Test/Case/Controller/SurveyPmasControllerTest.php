@@ -77,6 +77,18 @@ class SurveyPmasControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testEdit() {
+		$data = array('SurveyPma' => array('id' => '862289f2-d620-11e2-80f1-080027347923', 'q3' => '{4,3,2,1,2}', 'q4' => false));
+		$this->testAction('/survey_pmas/edit/862289f2-d620-11e2-80f1-080027347923',
+						array('method'=>'POST', 'data' => $data, 'return'=>'contents'));
+		$this->assertRegExp('/survey_pmas$/', $this->headers['Location']);
+		//$this->autoMock = false;
+		$this->testAction('/survey_pmas', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertEquals('862289f2-d620-11e2-80f1-080027347923', $this->vars['surveyPmas'][0]['SurveyPma']['id']);
+		$this->assertEquals('2013-06-15 20:37:21', $this->vars['surveyPmas'][0]['SurveyPma']['created']);
+		$this->assertEquals(1, $this->vars['surveyPmas'][0]['SurveyPma']['q1']);
+		$this->assertEquals(1, $this->vars['surveyPmas'][0]['SurveyPma']['q2']);
+		$this->assertEquals('{4,3,2,1,2}', $this->vars['surveyPmas'][0]['SurveyPma']['q3']);
+		$this->assertEquals(false, $this->vars['surveyPmas'][0]['SurveyPma']['q4']);
 	}
 
 /**
