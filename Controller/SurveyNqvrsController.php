@@ -15,6 +15,7 @@ class SurveyNqvrsController extends AppController {
 	public function index() {
 		$this->SurveyNqvr->recursive = 0;
 		$this->set('surveyNqvrs', $this->paginate());
+		$this->set('_serialize', array('surveyNqvrs'));
 	}
 
 /**

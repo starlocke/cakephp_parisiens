@@ -22,6 +22,9 @@ class SurveyPmasControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testIndex() {
+		$this->testAction('/survey_pmas/index.json', array('method'=>'GET', 'return' => 'contents'));
+		$expected = '{"surveyPmas":[{"SurveyPma":{"id":"862289f2-d620-11e2-80f1-080027347923","q1":1,"q2":1,"q3":"{1,1,1,1,1,1,1}","q4":true,"created":"2013-06-15 20:37:21"}}]}';
+		$this->assertEquals($expected, $this->contents);
 	}
 
 /**

@@ -15,6 +15,7 @@ class SurveyPmasController extends AppController {
 	public function index() {
 		$this->SurveyPma->recursive = 0;
 		$this->set('surveyPmas', $this->paginate());
+		$this->set('_serialize', array('surveyPmas'));
 	}
 
 /**

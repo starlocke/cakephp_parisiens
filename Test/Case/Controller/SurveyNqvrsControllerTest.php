@@ -22,6 +22,9 @@ class SurveyNqvrsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testIndex() {
+		$this->testAction('/survey_nqvrs/index.json', array('method'=>'GET', 'return' => 'contents'));
+		$expected = '{"surveyNqvrs":[{"SurveyNqvr":{"id":"85bd58b6-d620-11e2-ae09-080027347923","q1":true,"q2":true,"q3":1,"q4":"{1}","q5":"{1,1,1,1}","q6":1,"created":"2013-06-15 20:37:21"}}]}';
+		$this->assertEquals($expected, $this->contents);
 	}
 
 /**
