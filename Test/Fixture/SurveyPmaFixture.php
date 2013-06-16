@@ -21,7 +21,7 @@ class SurveyPmaFixture extends CakeTestFixture {
 		'id' => array('type' => 'string', 'null' => false, 'length' => 36, 'key' => 'primary'),
 		'q1' => array('type' => 'integer', 'null' => true),
 		'q2' => array('type' => 'integer', 'null' => true),
-		'q3' => array('type' => 'text', 'null' => true),
+		'q3' => array('type' => 'integer[]', 'null' => true),
 		'q4' => array('type' => 'boolean', 'null' => true),
 		'created' => array('type' => 'datetime', 'null' => true),
 		'indexes' => array(

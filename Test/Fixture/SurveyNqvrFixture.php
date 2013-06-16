@@ -22,8 +22,8 @@ class SurveyNqvrFixture extends CakeTestFixture {
 		'q1' => array('type' => 'boolean', 'null' => true),
 		'q2' => array('type' => 'boolean', 'null' => true),
 		'q3' => array('type' => 'integer', 'null' => true),
-		'q4' => array('type' => 'text', 'null' => true),
-		'q5' => array('type' => 'text', 'null' => true),
+		'q4' => array('type' => 'integer[]', 'null' => true),
+		'q5' => array('type' => 'integer[]', 'null' => true),
 		'q6' => array('type' => 'integer', 'null' => true),
 		'created' => array('type' => 'datetime', 'null' => true),
 		'indexes' => array(

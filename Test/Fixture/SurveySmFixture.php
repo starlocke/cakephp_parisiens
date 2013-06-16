@@ -19,8 +19,8 @@ class SurveySmFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'string', 'null' => false, 'length' => 36, 'key' => 'primary'),
-		'q1' => array('type' => 'text', 'null' => true),
-		'q2' => array('type' => 'text', 'null' => true),
+		'q1' => array('type' => 'integer[]', 'null' => true),
+		'q2' => array('type' => 'integer[]', 'null' => true),
 		'created' => array('type' => 'datetime', 'null' => true),
 		'indexes' => array(
 			'PRIMARY' => array('unique' => true, 'column' => 'id')

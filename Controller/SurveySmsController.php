@@ -31,6 +31,7 @@ class SurveySmsController extends AppController {
 		}
 		$options = array('conditions' => array('SurveySm.' . $this->SurveySm->primaryKey => $id));
 		$this->set('surveySm', $this->SurveySm->find('first', $options));
+		$this->set('_serialize', array('surveySm'));
 	}
 
 /**
@@ -43,7 +44,7 @@ class SurveySmsController extends AppController {
 			$this->SurveySm->create();
 			if ($this->SurveySm->save($this->request->data)) {
 				$this->Session->setFlash(__('The survey sm has been saved'));
-				$this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The survey sm could not be saved. Please, try again.'));
 			}
@@ -64,7 +65,7 @@ class SurveySmsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->SurveySm->save($this->request->data)) {
 				$this->Session->setFlash(__('The survey sm has been saved'));
-				$this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The survey sm could not be saved. Please, try again.'));
 			}
@@ -89,9 +90,9 @@ class SurveySmsController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->SurveySm->delete()) {
 			$this->Session->setFlash(__('Survey sm deleted'));
-			$this->redirect(array('action' => 'index'));
+			return $this->redirect(array('action' => 'index'));
 		}
 		$this->Session->setFlash(__('Survey sm was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		return $this->redirect(array('action' => 'index'));
 	}
 }
