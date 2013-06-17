@@ -95,4 +95,10 @@ class SurveyPmasController extends AppController {
 		$this->Session->setFlash(__('Survey pma was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	public function report(){
+		$this->set('report', $this->SurveyPma->report());
+		$this->set('_serialize', array('report'));
+	}
+
 }
