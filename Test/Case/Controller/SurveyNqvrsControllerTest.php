@@ -110,4 +110,10 @@ class SurveyNqvrsControllerTest extends ControllerTestCase {
 		$this->assertEmpty($this->vars['surveyNqvrs']);
 	}
 
+	public function testReport() {
+		$this->testAction('/survey_nqvrs/report.json', array('method'=>'GET', 'return'=>'vars'));
+		$this->assertNotEmpty($this->vars['report']);
+		$this->assertEquals('{"report":{"q1.yes":"1","q1.no":"0","q1.unknown":"0","q2.yes":"1","q2.no":"0","q2.unknown":"0","q3.1-5":"1","q3.6-10":"0","q3.11-50":"0","q3.51+":"0","q3.unknown":"0","q4.tr\u00e8s_amicaux":"1","q4.amicaux":"0","q4.neutres":"0","q4.inamicaux":"0","q4.odieux":"0","q4.unknown":"0","q5.tr\u00e8s_amicaux":"4","q5.amicaux":"0","q5.neutres":"0","q5.inamicaux":"0","q5.odieux":"0","q5.unknown":"0","q6.tr\u00e8s_amicaux":"1","q6.amicaux":"0","q6.neutres":"0","q6.inamicaux":"0","q6.odieux":"0","q6.unknown":"0"}}', $this->contents);
+	}
+
 }

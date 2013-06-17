@@ -95,4 +95,9 @@ class SurveyNqvrsController extends AppController {
 		$this->Session->setFlash(__('Survey nqvr was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	public function report(){
+		$this->set('report', $this->SurveyNqvr->report());
+		$this->set('_serialize', array('report'));
+	}
 }
