@@ -21,10 +21,10 @@
 
 		var data = google.visualization.arrayToDataTable([
 			['vices', 'impression']
-		, ['bavard',   <?= $report['sympathique'] ?>]
-		, ['ennuyeux',        <?= $report['joyeux'] ?>]
-		, ['stressé',    <?= $report['chaleureux'] ?>]
-		, ['prétentieux',      <?= $report['généreux'] ?>]
+		, ['bavard',			 <?= $report['bavard'] ?>]
+		, ['ennuyeux',     <?= $report['ennuyeux'] ?>]
+		, ['stressé',			 <?= $report['stressé'] ?>]
+		, ['prétentieux',  <?= $report['prétentieux'] ?>]
 		]);
 
 		var options = {
