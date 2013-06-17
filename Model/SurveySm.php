@@ -37,4 +37,38 @@ EOT
 		$report = $result[0][0];
 		return $report;
 	}
+
+	public function generate(){
+		$this->create();
+		$q1_stock = 100;
+		$q1_val = array();
+		$q1_val[] = rand(0,$q1_stock);
+		$q1_stock -= end($q1_val);
+		$q1_val[] = rand(0,$q1_stock);
+		$q1_stock -= end($q1_val);
+		$q1_val[] = rand(0,$q1_stock);
+		$q1_stock -= end($q1_val);
+		$q1_val[] = $q1_stock;
+		$q1 = '{' . implode(',', $q1_val) . '}';
+
+		$q2_stock = 100;
+		$q2_val = array();
+		$q2_val[] = rand(0,$q2_stock);
+		$q2_stock -= end($q2_val);
+		$q2_val[] = rand(0,$q2_stock);
+		$q2_stock -= end($q2_val);
+		$q2_val[] = rand(0,$q2_stock);
+		$q2_stock -= end($q2_val);
+		$q2_val[] = $q2_stock;
+		$q2 = '{' . implode(',', $q2_val) . '}';
+
+		$new = array(
+			'SurveySm' => array(
+					'q1' => $q1
+						, 'q2' => $q2
+			)
+		);
+		
+		$this->save($new);
+	}
 }

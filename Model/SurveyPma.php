@@ -103,4 +103,29 @@ EOT
 		}
 		return $report;
 	}
+
+	public function generate(){
+		$this->create();
+		$q3_val = array();
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3 = '{' . implode(',', $q3_val) . '}';
+
+		$new = array(
+			'SurveyPma' => array(
+					'q1' => rand(0,100)
+					, 'q2' => rand(0,100)
+					, 'q3' => $q3
+					, 'q4' => rand(0,1) ? true : false
+			)
+		);
+
+		$this->save($new);
+	}
+
 }

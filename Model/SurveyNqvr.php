@@ -63,4 +63,39 @@ EOT
 		return $report;
 
 	}
+
+	public function generate(){
+		$this->create();
+		$q3_val = array();
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3_val[] = rand(0,6);
+		$q3 = '{' . implode(',', $q3_val) . '}';
+
+		$new = array(
+			'SurveyNqvr' => array(
+					'q1' => rand(0,1) ? true : false
+					, 'q2' => rand(0,1) ? true : false
+					, 'q3' => rand(0,4)
+					, 'q4' => $this->_generateInts(10)
+					, 'q5' => $this->_generateInts(20)
+					, 'q6' => rand(rand(0,1),5)
+			)
+		);
+
+		$this->save($new);
+	}
+
+	private function _generateInts($lim_max = 10){
+		$limit = rand(1,$lim_max);
+		$result = array();
+		for($i = 0; $i < $limit; ++$i){
+			$result[] = rand(rand(0,1),rand(5,6));
+		}
+		return '{' . implode(',', $result) . '}';
+	}
 }

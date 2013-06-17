@@ -4,7 +4,14 @@ This is an implementation of the "Parisiens Problem".
 
 In its limited demo lifetime, it will be accessible at http://paris.popculturelab.ca/
 
-**Survey Results:**
+**Reponse Generator:** - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+This probably beats trying to explain the POST format, for the
+purposes of having a demo.
+
+- http://paris.popculturelab.ca/generator
+
+**Survey Results:** - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 NosQuestions, VosRéponses Inc
 
@@ -20,6 +27,15 @@ SondageMieux Inc
 
 - http://paris.popculturelab.ca/survey_sms/report
 - http://paris.popculturelab.ca/survey_sms/report.json
+
+**Survey CRUD index pages:** - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- http://paris.popculturelab.ca/survey_nqvrs/index
+- http://paris.popculturelab.ca/survey_nqvrs/index.json
+- http://paris.popculturelab.ca/survey_pmas/index
+- http://paris.popculturelab.ca/survey_pmas/index.json
+- http://paris.popculturelab.ca/survey_sms/index
+- http://paris.popculturelab.ca/survey_sms/index.json
 
 ### Dev & Build & Environment ###
 
